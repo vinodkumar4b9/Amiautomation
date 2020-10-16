@@ -1,9 +1,8 @@
 # An example to get the remaining rate limit using the Github GraphQL API.
 
 import requests
-import igraph
 
-headers = {"Authorization": "token 382957c0bba5a5765fe36e8c53fba3190328ce32"}
+headers = {"Authorization": "token af4790637cb3005de8f578aa765786fe3570cf43"}
 
 def run_query(query): # A simple function to use requests.post to make the API call. Note the json= section.
     request = requests.post('https://api.github.com/graphql', json={'query': query}, headers=headers)
@@ -16,14 +15,24 @@ def run_query(query): # A simple function to use requests.post to make the API c
 # The GraphQL query (with a few aditional bits included) itself defined as a multi-line string.
 
 query = """
-
-query MyQuery {
+{
   viewer {
-    createdAt
     login
   }
+  repositoryOwner(login: "vinodkumar4b9") {
+    id
+    repositories(first: 5) {
+      edges {
+        node {
+          id
+          createdAt
+          description
+          homepageUrl
+        }
+      }
+    }
+  }
 }
-
 """
 
 result = run_query(query) # Execute the query
