@@ -1,4 +1,4 @@
-curl -H "Authorization: bearer c5b55004e42018538f6a567bd7bb27b92b170695 " -X POST -d " \
+curl -H "Authorization: bearer b78a356d45c1a80d65562e417d7742b529bb7ed0 " -X POST -d " \
  { \
    \"query\": \"query { viewer { login }}\" \
  } \
