@@ -1,7 +1,7 @@
 # An example to get the remaining rate limit using the Github GraphQL API.
 
 import requests
-from igraph import Graph
+import igraph
 
 headers = {"Authorization": "token 382957c0bba5a5765fe36e8c53fba3190328ce32"}
 
