@@ -1,4 +1,4 @@
-curl -H "Authorization: token 6424fa3a97f4108fd1df210f2fd816d8b052ca5a " -X POST -d " \
+curl -H "Authorization: token 6e7506035a0c493f89121227690be2868e888838 " -X POST -d " \
  { \
    \"query\": \"query { viewer { login }}\" \
  } \
