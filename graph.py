@@ -2,7 +2,8 @@
 
 import requests
 
-headers = {"Authorization": "token af4790637cb3005de8f578aa765786fe3570cf43"}
+headers = {"Authorization": "token 9562aa7fd00c844a40634ae9a8164799dc29326a"}
+
 
 def run_query(query): # A simple function to use requests.post to make the API call. Note the json= section.
     request = requests.post('https://api.github.com/graphql', json={'query': query}, headers=headers)
@@ -13,27 +14,21 @@ def run_query(query): # A simple function to use requests.post to make the API c
 
 
 # The GraphQL query (with a few aditional bits included) itself defined as a multi-line string.
-
 query = """
 {
   viewer {
     login
   }
-  repositoryOwner(login: "vinodkumar4b9") {
-    id
-    repositories(first: 5) {
-      edges {
-        node {
-          id
-          createdAt
-          description
-          homepageUrl
-        }
-      }
-    }
+  rateLimit {
+    limit
+    cost
+    remaining
+    resetAt
   }
 }
 """
 
 result = run_query(query) # Execute the query
+remaining_rate_limit = result["data"]["rateLimit"]["remaining"] # Drill down the dictionary
+print("Remaining rate limit - {}".format(remaining_rate_limit))
 print(result)
