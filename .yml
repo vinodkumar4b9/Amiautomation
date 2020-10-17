@@ -1,0 +1,2 @@
+- name: GitHub GraphQL API Query
+  uses: octokit/graphql-action@v2.2.1
