@@ -2,8 +2,6 @@
 
 import requests
 
-headers = {"Authorization": "token e30850f350677ffe6c85a0b36944f1305435abf4"}
-
 
 def run_query(query): # A simple function to use requests.post to make the API call. Note the json= section.
     request = requests.post('https://api.github.com/graphql', json={'query': query}, headers=headers)
